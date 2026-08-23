@@ -98,30 +98,30 @@
     </div>
 
     <!-- Forms -->
-    <form id="login-form" class="space-y-4" onsubmit="event.preventDefault(); window.location.href='dashboard.html';">
+    <form id="login-form" class="space-y-4">
       <div class="space-y-1">
         <label class="text-xs font-bold text-gray-500 uppercase">Email Address</label>
-        <input type="email" required class="w-full bg-white dark:bg-darknavy-deep text-black dark:text-white border border-gray-200 dark:border-gray-850 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-magenta transition">
+        <input type="email" id="login-email" required class="w-full bg-white dark:bg-darknavy-deep text-black dark:text-white border border-gray-200 dark:border-gray-850 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-magenta transition">
       </div>
       <div class="space-y-1">
         <label class="text-xs font-bold text-gray-500 uppercase">Password</label>
-        <input type="password" required class="w-full bg-white dark:bg-darknavy-deep text-black dark:text-white border border-gray-200 dark:border-gray-850 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-magenta transition">
+        <input type="password" id="login-password" required class="w-full bg-white dark:bg-darknavy-deep text-black dark:text-white border border-gray-200 dark:border-gray-850 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-magenta transition">
       </div>
       <button type="submit" class="w-full bg-magenta hover:bg-magenta-hover text-white py-3.5 rounded-xl font-bold shadow-md shadow-magenta/20 transition">Sign In</button>
     </form>
 
-    <form id="register-form" class="space-y-4 hidden" onsubmit="event.preventDefault(); alert('Account successfully created! Redirecting to parent portal...'); window.location.href='dashboard.html';">
+    <form id="register-form" class="space-y-4 hidden">
       <div class="space-y-1">
         <label class="text-xs font-bold text-gray-500 uppercase">Full Name</label>
-        <input type="text" required class="w-full bg-white dark:bg-darknavy-deep text-black dark:text-white border border-gray-200 dark:border-gray-850 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-magenta transition">
+        <input type="text" id="register-name" required class="w-full bg-white dark:bg-darknavy-deep text-black dark:text-white border border-gray-200 dark:border-gray-850 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-magenta transition">
       </div>
       <div class="space-y-1">
         <label class="text-xs font-bold text-gray-500 uppercase">Email Address</label>
-        <input type="email" required class="w-full bg-white dark:bg-darknavy-deep text-black dark:text-white border border-gray-200 dark:border-gray-850 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-magenta transition">
+        <input type="email" id="register-email" required class="w-full bg-white dark:bg-darknavy-deep text-black dark:text-white border border-gray-200 dark:border-gray-850 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-magenta transition">
       </div>
       <div class="space-y-1">
         <label class="text-xs font-bold text-gray-500 uppercase">Password</label>
-        <input type="password" required class="w-full bg-white dark:bg-darknavy-deep text-black dark:text-white border border-gray-200 dark:border-gray-850 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-magenta transition">
+        <input type="password" id="register-password" required class="w-full bg-white dark:bg-darknavy-deep text-black dark:text-white border border-gray-200 dark:border-gray-850 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-magenta transition">
       </div>
       <button type="submit" class="w-full bg-magenta hover:bg-magenta-hover text-white py-3.5 rounded-xl font-bold shadow-md shadow-magenta/20 transition">Create Account</button>
     </form>
@@ -153,6 +153,49 @@
         cardDesc.textContent = "Register a parent portal membership account today.";
       }
     }
+
+    // Initialize default credentials if local storage is empty
+    if (!localStorage.getItem('registeredEmail')) {
+      localStorage.setItem('registeredEmail', 'sarah.jenkins@example.com');
+      localStorage.setItem('registeredPassword', 'password123');
+      localStorage.setItem('registeredName', 'Sarah Jenkins');
+    }
+
+    // Handle Login Form Submission
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const emailInput = document.getElementById('login-email').value.trim();
+      const passwordInput = document.getElementById('login-password').value;
+
+      const savedEmail = localStorage.getItem('registeredEmail');
+      const savedPassword = localStorage.getItem('registeredPassword');
+
+      if (emailInput === savedEmail && passwordInput === savedPassword) {
+        window.location.href = 'dashboard.html';
+      } else {
+        alert('Invalid email address or password. Please try again or create an account.');
+      }
+    });
+
+    // Handle Register Form Submission
+    document.getElementById('register-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nameInput = document.getElementById('register-name').value.trim();
+      const emailInput = document.getElementById('register-email').value.trim();
+      const passwordInput = document.getElementById('register-password').value;
+
+      if (!emailInput || !passwordInput || !nameInput) {
+        alert('Please fill out all fields.');
+        return;
+      }
+
+      localStorage.setItem('registeredEmail', emailInput);
+      localStorage.setItem('registeredPassword', passwordInput);
+      localStorage.setItem('registeredName', nameInput);
+
+      alert('Account successfully created! Redirecting to parent portal...');
+      window.location.href = 'dashboard.html';
+    });
   </script>
 </body>
 </html>

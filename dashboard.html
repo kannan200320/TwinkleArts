@@ -694,12 +694,13 @@
 
       const mainPanel = document.querySelector("main");
       if (mainPanel) {
+        mainPanel.classList.add("overflow-y-auto");
+        mainPanel.classList.remove("overflow-hidden");
+
         if (tabId === 'enroll' || tabId === 'profile') {
-          mainPanel.classList.remove("overflow-y-auto");
-          mainPanel.classList.add("overflow-hidden");
+          mainPanel.classList.add("no-scrollbar");
         } else {
-          mainPanel.classList.remove("overflow-hidden");
-          mainPanel.classList.add("overflow-y-auto");
+          mainPanel.classList.remove("no-scrollbar");
         }
         mainPanel.scrollTop = 0;
       }
