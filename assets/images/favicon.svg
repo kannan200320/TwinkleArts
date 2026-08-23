@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#db2777">
+  <!-- Main Twinkle Sparkle Star -->
+  <path d="M12 2c0 5.5 4.5 10 10 10-5.5 0-10 4.5-10 10 0-5.5-4.5-10-10-10 5.5 0 10-4.5 10-10z" />
+  <!-- Companion Twinkle Sparkle Star -->
+  <path d="M19 5c0 1.65 1.35 3 3 3-1.65 0-3 1.35-3 3 0-1.65-1.35-3-3-3 1.65 0 3-1.35 3-3z" opacity="0.8" />
+</svg>

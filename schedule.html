@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+<head>
+  <script>
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Schedule | TwinkleArts Academy</title>
+  <!-- Tailwind CDN & Config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            magenta: {
+              DEFAULT: '#91117a',
+              hover: '#730d61',
+              light: '#b01a95',
+            },
+            darknavy: {
+              DEFAULT: '#000000',
+              light: '#111111',
+              deep: '#000000',
+            },
+            black: {
+              deep: '#0a0a0a',
+              light: '#171717',
+              DEFAULT: '#000000',
+            },
+            gray: {
+              850: '#202020',
+            },
+            slate: {
+              905: '#0f172a',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts & Custom Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-white text-gray-900 dark:bg-darknavy-deep dark:text-gray-100 transition-colors duration-300">
+
+  <!-- ================= HEADER SECTION ================= -->
+    <!-- ================= HEADER SECTION ================= -->
+    <!-- ================= HEADER SECTION ================= -->
+    <!-- ================= HEADER SECTION ================= -->
+    <!-- ================= HEADER SECTION ================= -->
+    <!-- ================= HEADER SECTION ================= -->
+    <!-- ================= HEADER SECTION ================= -->
+    <!-- ================= HEADER SECTION ================= -->
+  <header class="sticky top-0 z-40 bg-white/95 dark:bg-darknavy/95 backdrop-blur border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-2 rtl:space-x-reverse shrink-0">
+          <span class="w-10 h-10 rounded-full bg-magenta flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-magenta/30 animate-pulse-slow">T</span>
+          <span class="text-xl font-bold tracking-tight text-darknavy dark:text-white font-sans">Twinkle<span class="text-magenta">Arts</span></span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden xl:flex space-x-6 rtl:space-x-reverse items-center mx-6">
+          
+          <!-- Home Dropdown -->
+          <div class="relative group">
+            <button class="dropdown-toggle flex items-center space-x-1 rtl:space-x-reverse text-gray-700 dark:text-gray-300 hover:text-magenta py-2 font-semibold transition-colors duration-200">
+              <span>Home</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-magenta transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="absolute left-0 rtl:right-0 mt-2 w-56 rounded-xl bg-white dark:bg-darknavy border border-gray-100 dark:border-gray-800 shadow-xl hidden group-hover:block z-50">
+              <div class="p-2 space-y-1">
+                <a href="index.html" class="block px-4 py-3 text-sm rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-darknavy-light hover:text-magenta font-semibold transition-colors">Home 1 - Academy Landing</a>
+                <a href="home-niche.html" class="block px-4 py-3 text-sm rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-darknavy-light hover:text-magenta font-semibold transition-colors">Home 2 - Niche Urban Beat</a>
+              </div>
+            </div>
+          </div>
+
+          <a href="about.html" class="text-gray-700 dark:text-gray-300 hover:text-magenta font-semibold transition-colors duration-200">About Us</a>
+          <a href="services.html" class="text-gray-700 dark:text-gray-300 hover:text-magenta font-semibold transition-colors duration-200">Programs</a>
+          <a href="instructors.html" class="text-gray-700 dark:text-gray-300 hover:text-magenta font-semibold transition-colors duration-200">Instructors</a>
+          
+          <!-- Explore Dropdown -->
+          <div class="relative group">
+            <button class="dropdown-toggle flex items-center space-x-1 rtl:space-x-reverse text-gray-700 dark:text-gray-300 hover:text-magenta py-2 font-semibold transition-colors duration-200">
+              <span>Explore Pages</span>
+              <svg class="w-4 h-4 text-gray-400 group-hover:text-magenta transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="absolute left-0 rtl:right-0 mt-2 w-52 rounded-xl bg-white dark:bg-darknavy border border-gray-100 dark:border-gray-800 shadow-xl hidden group-hover:block z-50">
+              <div class="p-2 space-y-1">
+                <a href="schedule.html" class="block px-4 py-2.5 text-sm rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-darknavy-light hover:text-magenta font-semibold transition-colors">Class Schedule</a>
+                <a href="gallery.html" class="block px-4 py-2.5 text-sm rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-darknavy-light hover:text-magenta font-semibold transition-colors">Event Gallery</a>
+                <a href="pricing.html" class="block px-4 py-2.5 text-sm rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-darknavy-light hover:text-magenta font-semibold transition-colors">Membership Plans</a>
+                <a href="blog.html" class="block px-4 py-2.5 text-sm rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-darknavy-light hover:text-magenta font-semibold transition-colors">Academy Blog</a>
+              </div>
+            </div>
+          </div>
+          
+          <a href="contact.html" class="text-gray-700 dark:text-gray-300 hover:text-magenta font-semibold transition-colors duration-200">Contact</a>
+        </nav>
+
+        <!-- Utility Toggles & Button -->
+        <div class="hidden xl:flex items-center space-x-3 rtl:space-x-reverse shrink-0">
+          <button class="rtl-toggle px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 text-xs font-extrabold hover:bg-gray-100 dark:hover:bg-darknavy-light transition text-gray-700 dark:text-gray-300">
+            <span class="rtl-text">RTL</span>
+          </button>
+          
+          <button class="theme-toggle p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-darknavy-light text-gray-500 dark:text-gray-400">
+            <svg class="theme-toggle-sun w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+            <svg class="theme-toggle-moon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+          </button>
+
+          <a href="login-register.html" class="bg-magenta hover:bg-magenta-hover text-white px-5 py-2.5 rounded-full font-bold shadow-lg shadow-magenta/20 transition duration-150 text-sm">Register Now</a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button (Clean like YogaSphere) -->
+        <div class="xl:hidden flex items-center shrink-0">
+          <button id="mobile-menu-btn" class="p-2 text-gray-700 dark:text-gray-300 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer (YogaSphere Style) -->
+  <div id="mobile-menu" class="hidden fixed inset-0 z-50 bg-black/60 xl:hidden">
+    <!-- Backdrop Close Area -->
+    <div class="absolute inset-0" onclick="document.getElementById('mobile-menu').classList.add('hidden')"></div>
+    
+    <div class="absolute top-0 right-0 rtl:left-0 rtl:right-auto w-80 h-full bg-white dark:bg-neutral-900 p-6 shadow-2xl flex flex-col justify-between transition-transform duration-300 z-10">
+      
+      <div class="space-y-6">
+        <!-- Drawer Header -->
+        <div class="flex justify-between items-center pb-4 border-b border-gray-150 dark:border-gray-800">
+          <h4 class="text-xl font-bold text-darknavy dark:text-white">Menu</h4>
+          <button id="mobile-menu-close" class="text-gray-500 hover:text-magenta focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
+
+        <!-- Drawer Navigation Links -->
+        <nav class="space-y-3">
+          <!-- Home Accordion -->
+          <div class="space-y-1">
+            <button class="w-full flex justify-between items-center py-2 text-gray-700 dark:text-gray-300 hover:text-magenta font-semibold transition text-left" onclick="this.nextElementSibling.classList.toggle('hidden')">
+              <span>Home</span>
+              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="pl-4 ml-1 space-y-2.5 hidden border-l-2 border-gray-150 dark:border-gray-800 py-1">
+              <a href="index.html" class="block pl-3 text-sm text-gray-500 hover:text-magenta font-medium">Home 1</a>
+              <a href="home-niche.html" class="block pl-3 text-sm text-gray-500 hover:text-magenta font-medium">Home 2</a>
+            </div>
+          </div>
+
+          <a href="about.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-magenta font-semibold transition">About Us</a>
+          <a href="services.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-magenta font-semibold transition">Programs</a>
+          <a href="instructors.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-magenta font-semibold transition">Instructors</a>
+          
+          <!-- Explore Pages Accordion -->
+          <div class="space-y-1">
+            <button class="w-full flex justify-between items-center py-2 text-gray-700 dark:text-gray-300 hover:text-magenta font-semibold transition text-left" onclick="this.nextElementSibling.classList.toggle('hidden')">
+              <span>Explore Pages</span>
+              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="pl-4 ml-1 space-y-2.5 hidden border-l-2 border-gray-150 dark:border-gray-800 py-1">
+              <a href="schedule.html" class="block pl-3 text-sm text-gray-500 hover:text-magenta font-medium">Class Schedule</a>
+              <a href="gallery.html" class="block pl-3 text-sm text-gray-500 hover:text-magenta font-medium">Event Gallery</a>
+              <a href="pricing.html" class="block pl-3 text-sm text-gray-500 hover:text-magenta font-medium">Membership Plans</a>
+              <a href="blog.html" class="block pl-3 text-sm text-gray-500 hover:text-magenta font-medium">Academy Blog</a>
+            </div>
+          </div>
+
+          <a href="contact.html" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-magenta font-semibold transition">Contact</a>
+        </nav>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Register Now CTA button (full-width) -->
+        <div class="pt-4 border-t border-gray-150 dark:border-gray-800">
+          <a href="login-register.html" class="block w-full text-center bg-magenta hover:bg-magenta-hover text-white py-3.5 rounded-xl font-bold shadow transition text-sm">Register Now</a>
+        </div>
+
+        <!-- Bottom Toggles Bar -->
+        <div class="flex justify-between items-center pt-4 border-t border-gray-150 dark:border-gray-800">
+          <!-- Theme Toggle Icon Button -->
+          <button class="theme-toggle p-2 hover:bg-gray-100 dark:hover:bg-neutral-800 rounded-xl transition text-gray-500 dark:text-gray-400">
+            <svg class="theme-toggle-sun w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+            <svg class="theme-toggle-moon w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"></path></svg>
+          </button>
+          
+          <!-- RTL/LTR Swap Icon Button -->
+          <button class="rtl-toggle p-2 hover:bg-gray-100 dark:hover:bg-neutral-800 rounded-xl transition text-gray-500 dark:text-gray-400">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= BREADCRUMB COVER IMAGE ================= -->
+  <section class="relative py-24 bg-cover bg-center text-white" style="background-image: url('assets/images/bg_schedule.jpg');">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <h1 class="text-4xl sm:text-5xl font-extrabold">Batch Timings & Schedule</h1>
+      <p class="text-gray-300 max-w-xl mx-auto font-sans">Find the perfect class slot for your child's performing arts training.</p>
+    </div>
+  </section>
+
+  <!-- ================= SCHEDULE GRID ================= -->
+  <section class="py-20 bg-white dark:bg-black-deep">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+        <span class="text-magenta font-extrabold text-sm uppercase tracking-widest">Timetable</span>
+        <h2 class="text-3xl font-extrabold text-black dark:text-white">Our Weekly Class Calendar</h2>
+        <p class="text-gray-500">We offer convenient after-school hours and weekend slots tailored for school-going children.</p>
+      </div>
+
+      <!-- Schedule Table -->
+      <div class="overflow-x-auto rounded-3xl border border-gray-150 dark:border-gray-800 shadow-xl bg-gray-50 dark:bg-darknavy">
+        <table class="w-full text-left rtl:text-right border-collapse">
+          <thead>
+            <tr class="bg-gray-100 dark:bg-darknavy-light text-black dark:text-white border-b border-gray-200 dark:border-gray-800 text-xs font-bold uppercase tracking-wider">
+              <th class="py-5 px-6">Program</th>
+              <th class="py-5 px-6">Days</th>
+              <th class="py-5 px-6">Time</th>
+              <th class="py-5 px-6">Age Group</th>
+              <th class="py-5 px-6">Instructor</th>
+              <th class="py-5 px-6">Action</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-150 dark:divide-gray-850 text-xs font-semibold text-gray-600 dark:text-gray-300">
+            
+            <!-- Ballet -->
+            <tr class="hover:bg-gray-100/50 dark:hover:bg-darknavy-light/50 transition">
+              <td class="py-4 px-6 font-bold text-black dark:text-white">Classical Ballet</td>
+              <td class="py-4 px-6">Monday & Wednesday</td>
+              <td class="py-4 px-6">4:00 PM - 5:00 PM</td>
+              <td class="py-4 px-6">4 - 7 Years</td>
+              <td class="py-4 px-6">Clara Davis</td>
+              <td class="py-4 px-6"><a href="login-register.html" class="text-magenta hover:underline">Register</a></td>
+            </tr>
+
+            <!-- Hip Hop -->
+            <tr class="hover:bg-gray-100/50 dark:hover:bg-darknavy-light/50 transition">
+              <td class="py-4 px-6 font-bold text-black dark:text-white">Urban Hip-Hop</td>
+              <td class="py-4 px-6">Tuesday & Thursday</td>
+              <td class="py-4 px-6">4:30 PM - 5:30 PM</td>
+              <td class="py-4 px-6">6 - 10 Years</td>
+              <td class="py-4 px-6">Marcus Sterling</td>
+              <td class="py-4 px-6"><a href="login-register.html" class="text-magenta hover:underline">Register</a></td>
+            </tr>
+
+            <!-- Bharatnatyam -->
+            <tr class="hover:bg-gray-100/50 dark:hover:bg-darknavy-light/50 transition">
+              <td class="py-4 px-6 font-bold text-black dark:text-white">Classical Bharatnatyam</td>
+              <td class="py-4 px-6">Saturday</td>
+              <td class="py-4 px-6">9:00 AM - 10:30 AM</td>
+              <td class="py-4 px-6">6 - 15 Years</td>
+              <td class="py-4 px-6">Sonia Sen</td>
+              <td class="py-4 px-6"><a href="login-register.html" class="text-magenta hover:underline">Register</a></td>
+            </tr>
+
+            <!-- Latin Salsa -->
+            <tr class="hover:bg-gray-100/50 dark:hover:bg-darknavy-light/50 transition">
+              <td class="py-4 px-6 font-bold text-black dark:text-white">Latin Salsa</td>
+              <td class="py-4 px-6">Friday</td>
+              <td class="py-4 px-6">5:00 PM - 6:00 PM</td>
+              <td class="py-4 px-6">5 - 14 Years</td>
+              <td class="py-4 px-6">Juan Ruiz</td>
+              <td class="py-4 px-6"><a href="login-register.html" class="text-magenta hover:underline">Register</a></td>
+            </tr>
+
+            <!-- Western Beats -->
+            <tr class="hover:bg-gray-100/50 dark:hover:bg-darknavy-light/50 transition">
+              <td class="py-4 px-6 font-bold text-black dark:text-white">Western Beats</td>
+              <td class="py-4 px-6">Monday & Wednesday</td>
+              <td class="py-4 px-6">6:00 PM - 7:00 PM</td>
+              <td class="py-4 px-6">8 - 15 Years</td>
+              <td class="py-4 px-6">Emma Watson</td>
+              <td class="py-4 px-6"><a href="login-register.html" class="text-magenta hover:underline">Register</a></td>
+            </tr>
+
+            <!-- Drama -->
+            <tr class="hover:bg-gray-100/50 dark:hover:bg-darknavy-light/50 transition">
+              <td class="py-4 px-6 font-bold text-black dark:text-white">Drama & Acting</td>
+              <td class="py-4 px-6">Wednesday & Friday</td>
+              <td class="py-4 px-6">4:00 PM - 5:00 PM</td>
+              <td class="py-4 px-6">6 - 12 Years</td>
+              <td class="py-4 px-6">Sonia Sen</td>
+              <td class="py-4 px-6"><a href="login-register.html" class="text-magenta hover:underline">Register</a></td>
+            </tr>
+
+            <!-- Vocal -->
+            <tr class="hover:bg-gray-100/50 dark:hover:bg-darknavy-light/50 transition">
+              <td class="py-4 px-6 font-bold text-black dark:text-white">Vocal Music</td>
+              <td class="py-4 px-6">Tuesday & Friday</td>
+              <td class="py-4 px-6">3:30 PM - 4:30 PM</td>
+              <td class="py-4 px-6">5 - 15 Years</td>
+              <td class="py-4 px-6">Clara Davis</td>
+              <td class="py-4 px-6"><a href="login-register.html" class="text-magenta hover:underline">Register</a></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER SECTION ================= -->
+  <footer class="bg-white dark:bg-black border-t border-gray-150 dark:border-gray-800 py-16 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Newsletter Section -->
+      <div class="flex flex-col items-center text-center pb-12 border-b border-gray-150 dark:border-gray-855">
+        <h3 class="text-2xl font-extrabold text-black dark:text-white font-sans">Join Our Newsletter</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-2 mb-6">Get weekly dance tips, training updates, and class schedules.</p>
+        <form class="flex flex-col sm:flex-row w-full max-w-md items-center gap-3" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+          <input type="email" placeholder="Email Address" required class="w-full px-5 py-3 rounded-full border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-darknavy-light text-black dark:text-white text-sm focus:outline-none focus:border-magenta transition">
+          <button type="submit" class="w-full sm:w-auto bg-magenta hover:bg-magenta-hover text-white px-8 py-3 rounded-full font-bold text-sm transition shadow-md shadow-magenta/20 shrink-0">Subscribe</button>
+        </form>
+      </div>
+
+      <!-- Links Grid Section -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pt-12 text-sm text-gray-600 dark:text-gray-300">
+        
+        <!-- Column 1: Logo & Description -->
+        <div class="space-y-4">
+          <a href="index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
+            <span class="w-10 h-10 rounded-full bg-magenta flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-magenta/30">T</span>
+            <span class="text-xl font-bold tracking-tight text-darknavy dark:text-white">Twinkle<span class="text-magenta">Arts</span></span>
+          </a>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            Discover a premier dance academy designed for youthful energy, musical expression, and physical growth. Experience world-class instructors and custom classes for all ages.
+          </p>
+        </div>
+
+        <!-- Column 2: DANCE & MUSIC -->
+        <div class="space-y-4">
+          <h4 class="font-extrabold text-xs uppercase tracking-widest text-magenta">Dance & Music</h4>
+          <ul class="space-y-2.5 text-xs font-semibold">
+            <li><a href="program-ballet.html" class="hover:text-magenta transition">Classical Ballet</a></li>
+            <li><a href="program-hiphop.html" class="hover:text-magenta transition">Urban Hip-Hop</a></li>
+            <li><a href="program-classical.html" class="hover:text-magenta transition">Classical Bharatnatyam</a></li>
+            <li><a href="program-vocal.html" class="hover:text-magenta transition">Vocal Music</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: QUICK LINKS -->
+        <div class="space-y-4">
+          <h4 class="font-extrabold text-xs uppercase tracking-widest text-magenta">Quick Links</h4>
+          <ul class="space-y-2.5 text-xs font-semibold">
+            <li><a href="about.html" class="hover:text-magenta transition">Our Story</a></li>
+            <li><a href="about.html" class="hover:text-magenta transition">Our Instructors</a></li>
+            <li><a href="pricing.html" class="hover:text-magenta transition">Membership Plans</a></li>
+            <li><a href="login-register.html" class="hover:text-magenta transition">Enroll Now</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: GET IN TOUCH -->
+        <div class="space-y-4">
+          <h4 class="font-extrabold text-xs uppercase tracking-widest text-magenta">Get In Touch</h4>
+          <ul class="space-y-3.5 text-xs">
+            <li class="flex items-start space-x-2.5 rtl:space-x-reverse leading-relaxed">
+              <svg class="w-4 h-4 text-magenta shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <span>108 Rhythm Avenue, Dance Valley, CA 90210</span>
+            </li>
+            <li class="flex items-center space-x-2.5 rtl:space-x-reverse">
+              <svg class="w-4 h-4 text-magenta shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a1 1 0 01.94.725l.548 2.2a1 1 0 00.996.81h2.982a1 1 0 00.996-.81l.548-2.2a1 1 0 01.94-.725H21a2 2 0 012 2v1.5a10.5 10.5 0 01-10.5 10.5H11A10.5 10.5 0 01.5 11V5z"/></svg>
+              <a href="tel:5559023321" class="hover:underline">+1 (555) 902-3321</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Divider & Bottom Area -->
+      <div class="mt-12 pt-8 border-t border-gray-100 dark:border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+        <p>&copy; 2026 TwinkleArts Academy. All rights reserved.</p>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-10 h-10 rounded-full bg-magenta text-white flex items-center justify-center hover:bg-magenta-hover transition shadow-md shadow-magenta/20 focus:outline-none shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

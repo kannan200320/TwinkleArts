@@ -1,0 +1,116 @@
+/* Kids Dance Academy Custom CSS Overrides */
+
+/* Custom smooth transitions for dark mode */
+html, body {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Scrollbar styling using colors */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #91117a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #730d61;
+}
+
+/* RTL layout adjustments for specific elements if needed */
+[dir="rtl"] .rtl-mirror {
+  transform: scaleX(-1);
+}
+
+/* Custom background animation for Hero */
+@keyframes pulse-slow {
+  0%, 100% { transform: scale(1); opacity: 0.1; }
+  50% { transform: scale(1.05); opacity: 0.15; }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 8s infinite ease-in-out;
+}
+
+/* Custom Dark Mode Hover Shadows and Outlines for Cards */
+.dark .group:not(a.group):hover,
+.dark .hover\:shadow-2xl:hover,
+.dark .hover\:shadow-xl:hover,
+.dark .hover\:shadow-lg:hover,
+.dark .hover\:shadow:hover,
+.dark [class*="hover:shadow"]:hover {
+  box-shadow: 0 10px 30px -10px rgba(219, 39, 119, 0.35), 0 1px 15px 0 rgba(219, 39, 119, 0.15) !important;
+  border-color: rgba(219, 39, 119, 0.4) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Ensure the brand logo is always fully visible and doesn't fade/pulse */
+.bg-magenta.flex.items-center.justify-center {
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+/* Hover effects for "Read More" and "Read Details" in dark mode */
+.dark a[href*="program-"]:hover,
+.dark a[href*="blog-details-"]:hover,
+.dark a[class*="hover:text-magenta"]:hover,
+.dark a.hover\:text-magenta:hover,
+.dark a.hover\:underline:hover {
+  color: #db2777 !important; /* Glow Magenta */
+  text-shadow: 0 0 8px rgba(219, 39, 119, 0.5) !important;
+  transform: translateX(3px);
+  transition: all 0.3s ease !important;
+}
+
+/* Equal Height & Bottom-Aligned Buttons for Cards */
+.grid > div.rounded-3xl,
+.grid > div.program-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+.grid > div.rounded-3xl > div.p-6,
+.grid > div.program-card > div.p-6 {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1 !important;
+}
+
+.grid > div.rounded-3xl > div.p-6 > a,
+.grid > div.rounded-3xl > div.p-6 > div,
+.grid > div.program-card > div.p-6 > a,
+.grid > div.program-card > div.p-6 > div {
+  margin-top: auto !important;
+}
+
+/* Hide Scroll to Top Button Globally */
+button[onclick*="window.scrollTo"] {
+  display: none !important;
+}
+
+/* Custom compatibility rules for invalid dark mode gray classes */
+.dark [class*="dark:border-gray-85"] {
+  border-color: #1f2937 !important; /* Tailwind gray-800 border */
+}
+.dark [class*="dark:divide-gray-85"] > :not([hidden]) ~ :not([hidden]) {
+  border-color: #1f2937 !important; /* Tailwind gray-800 divider */
+}
+.dark [class*="dark:bg-gray-85"] {
+  background-color: #1f2937 !important; /* Tailwind gray-800 bg */
+}
+
+/* Center Footer Copyright Text Globally */
+footer .border-t.flex-col.sm\:flex-row {
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/* Fix mobile menu drawer toggles gap globally */
+#mobile-menu .flex.justify-between.items-center.pt-4.border-t {
+  justify-content: center !important;
+  gap: 1.5rem !important; /* 24px gap instead of huge screen-width gap */
+}
