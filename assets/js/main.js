@@ -538,3 +538,14 @@ function highlightActiveNav() {
   });
 }
 
+// Reset newsletter email subscription input upon form submission
+document.addEventListener("submit", (e) => {
+  const emailInput = e.target.querySelector('input[type="email"]');
+  if (emailInput && (emailInput.placeholder === "Email Address" || e.target.outerHTML.includes("Join Our Newsletter"))) {
+    setTimeout(() => {
+      e.target.reset();
+    }, 50);
+  }
+});
+
+
