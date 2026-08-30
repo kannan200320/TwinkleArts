@@ -214,25 +214,25 @@
   </div>
 
   <!-- ================= HERO SECTION ================= -->
-  <section class="relative overflow-hidden bg-black py-28 lg:py-40 text-white border-b border-gray-900">
-    <div class="absolute inset-0 bg-cover bg-center opacity-40" style="background-image: url('assets/images/hero-niche.jpg');"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-transparent"></div>
+  <section id="hero" class="relative overflow-hidden bg-white dark:bg-black py-28 lg:py-40 text-black dark:text-white border-b border-gray-150 dark:border-gray-900 transition-colors duration-300">
+    <div class="absolute inset-0 bg-cover bg-center opacity-20 dark:opacity-40" style="background-image: url('assets/images/hero-niche.jpg');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-white via-white/85 to-transparent dark:from-black dark:via-black/85 dark:to-transparent"></div>
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
       <span class="inline-block bg-magenta text-white font-extrabold text-xs px-4 py-2 rounded-full tracking-widest uppercase">
         Street Dance Cyphers
       </span>
-      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tighter uppercase leading-none max-w-4xl">
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tighter uppercase leading-none max-w-4xl text-black dark:text-white">
         Claim Your Ground on the <span class="text-magenta">Urban Floor</span>
       </h1>
-      <p class="text-lg text-gray-300 max-w-2xl">
+      <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl">
         Master popping, locking, breaking and hip hop battle syncs with award winning urban crew leaders.
       </p>
       <div class="flex flex-wrap gap-4 pt-4">
         <a href="login-register.html" class="bg-magenta hover:bg-magenta-hover text-white px-8 py-4 rounded-full font-extrabold tracking-wide uppercase transition text-xs shadow-lg shadow-magenta/30">
           Book Trial Slot
         </a>
-        <a href="#cyphers-calendar" class="bg-transparent border border-gray-700 hover:border-magenta text-white px-8 py-4 rounded-full font-extrabold tracking-wide uppercase transition text-xs">
+        <a href="#cyphers-calendar" class="bg-transparent border border-gray-300 dark:border-gray-700 hover:border-magenta text-gray-700 dark:text-white px-8 py-4 rounded-full font-extrabold tracking-wide uppercase transition text-xs">
           View Cypher Events
         </a>
       </div>
@@ -240,7 +240,7 @@
   </section>
 
   <!-- ================= STREET CREW CULTURE (WATERMARK APPLIED) ================= -->
-  <section class="py-24 bg-white dark:bg-black-deep border-b border-gray-150 dark:border-gray-900 relative">
+  <section id="about" class="py-24 bg-white dark:bg-black-deep border-b border-gray-150 dark:border-gray-900 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
       <!-- Breakdancer Watermark -->
@@ -270,8 +270,8 @@
           </div>
         </div>
         <!-- HD image fits perfectly -->
-        <div>
-          <img src="assets/images/program-hiphop.jpg" alt="Children dancing hip-hop" class="rounded-[2rem] shadow-2xl border border-gray-150 dark:border-gray-800 object-cover w-full h-96">
+        <div class="w-full h-96 rounded-[2rem] bg-gray-150 dark:bg-gray-800 animate-pulse overflow-hidden shadow-2xl border border-gray-150 dark:border-gray-800 relative">
+          <img src="assets/images/program-hiphop.jpg" alt="Children dancing hip-hop" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0" onload="this.classList.remove('opacity-0'); this.parentElement.classList.remove('animate-pulse');" loading="lazy">
         </div>
       </div>
 
@@ -279,7 +279,7 @@
   </section>
 
   <!-- ================= CORE STYLES OF URBAN BEAT ================= -->
-  <section class="py-20 bg-gray-50 dark:bg-darknavy border-b border-gray-150 dark:border-gray-900 relative">
+  <section id="programs" class="py-20 bg-gray-50 dark:bg-darknavy border-b border-gray-150 dark:border-gray-900 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
       <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
@@ -329,7 +329,9 @@
       <div class="grid lg:grid-cols-12 gap-16 items-center">
         <!-- Image Left -->
         <div class="lg:col-span-5">
-          <img src="assets/images/recital-stage.jpg" alt="Dance recital showcase" class="rounded-[2rem] shadow-2xl border border-gray-150 dark:border-gray-800 object-cover w-full h-96">
+          <div class="w-full h-96 rounded-[2rem] bg-gray-150 dark:bg-gray-800 animate-pulse overflow-hidden shadow-2xl border border-gray-150 dark:border-gray-800 relative">
+            <img src="assets/images/recital-stage.jpg" alt="Dance recital showcase" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0" onload="this.classList.remove('opacity-0'); this.parentElement.classList.remove('animate-pulse');" loading="lazy">
+          </div>
         </div>
         
         <!-- Content Right -->

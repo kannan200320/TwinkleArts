@@ -64,16 +64,16 @@ document.addEventListener("DOMContentLoaded", () => {
   socialContainers.forEach(container => {
     const links = container.querySelectorAll('a');
     if (links.length >= 4) {
-      links[0].href = 'https://www.instagram.com/';
+      links[0].href = 'https://www.instagram.com/twinkleartsacademy';
       links[0].target = '_blank';
       
-      links[1].href = 'https://www.facebook.com/';
+      links[1].href = 'https://www.facebook.com/twinkleartsacademy';
       links[1].target = '_blank';
       
-      links[2].href = 'https://x.com/';
+      links[2].href = 'https://x.com/twinkleartsacad';
       links[2].target = '_blank';
       
-      links[3].href = 'https://www.linkedin.com/';
+      links[3].href = 'https://www.linkedin.com/company/twinkleartsacademy';
       links[3].target = '_blank';
     }
   });
@@ -206,7 +206,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initBlogFilter();
   initDashboard();
   highlightActiveNav();
+  initScrollSpy();
 });
+
 
 // ==========================================
 // 1. Theme Configuration (Dark / Light Mode)
@@ -291,17 +293,60 @@ function initMobileMenu() {
   const closeBtn = document.getElementById('mobile-menu-close');
   const mobileMenu = document.getElementById('mobile-menu');
   
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.remove('hidden');
+  if (!mobileMenu) return;
+  
+  const backdrop = mobileMenu.querySelector('.absolute.inset-0');
+  
+  // Format the inner SVG of the mobile menu btn to have three distinct lines for animation
+  if (menuBtn) {
+    menuBtn.innerHTML = `
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path class="line-1" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16" />
+        <path class="line-2" stroke-linecap="round" stroke-linejoin="round" d="M4 12h16" />
+        <path class="line-3" stroke-linecap="round" stroke-linejoin="round" d="M4 18h16" />
+      </svg>
+    `;
+  }
+  
+  const openMenu = () => {
+    mobileMenu.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+    if (menuBtn) menuBtn.classList.add('open');
+  };
+  
+  const closeMenu = () => {
+    mobileMenu.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+    if (menuBtn) menuBtn.classList.remove('open');
+  };
+  
+  if (menuBtn) {
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (mobileMenu.classList.contains('hidden')) {
+        openMenu();
+      } else {
+        closeMenu();
+      }
     });
   }
-  if (closeBtn && mobileMenu) {
-    closeBtn.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
+  
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeMenu();
+    });
+  }
+  
+  if (backdrop) {
+    backdrop.removeAttribute('onclick'); // remove inline click to avoid conflicting calls
+    backdrop.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeMenu();
     });
   }
 }
+
 
 function initDropdowns() {
   const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
@@ -547,5 +592,130 @@ document.addEventListener("submit", (e) => {
     }, 50);
   }
 });
+
+// ==========================================
+// 8. ScrollSpy (Dynamic Active Page Scrolling Highlight)
+// ==========================================
+function initScrollSpy() {
+  const path = window.location.pathname;
+  const page = path.split("/").pop();
+  const isHomepage = (page === "index.html" || page === "home-niche.html" || page === "");
+  
+  if (!isHomepage) return;
+  
+  const spySections = document.querySelectorAll('section[id="hero"], section[id="about"], section[id="programs"]');
+  if (spySections.length === 0) return;
+  
+  const handleScrollSpy = () => {
+    const scrollPos = (window.scrollY || document.documentElement.scrollTop || 0) + 200; // offset for header height
+    let activeSectionId = 'hero'; // default to hero at top
+    
+    spySections.forEach(section => {
+      const top = section.offsetTop;
+      if (scrollPos >= top) {
+        activeSectionId = section.getAttribute('id');
+      }
+    });
+    
+    // Update nav elements
+    const desktopLinks = document.querySelectorAll('nav a, nav .dropdown-toggle');
+    const mobileLinks = document.querySelectorAll('#mobile-menu a, #mobile-menu button');
+    
+    let highlightHref = '';
+    let highlightText = '';
+    
+    if (activeSectionId === 'hero') {
+      highlightHref = page || 'index.html';
+      highlightText = 'home';
+    } else if (activeSectionId === 'about') {
+      highlightHref = 'about.html';
+      highlightText = 'about us';
+    } else if (activeSectionId === 'programs') {
+      highlightHref = 'services.html';
+      highlightText = 'programs';
+    }
+    
+    const processLink = (link) => {
+      const href = link.getAttribute('href') || '';
+      const text = link.textContent.trim().toLowerCase();
+      
+      let isMatch = false;
+      if (highlightText === 'home' && (href === 'index.html' || href === 'home-niche.html' || text.includes('home'))) {
+        isMatch = true;
+      } else if (highlightHref && href.includes(highlightHref)) {
+        isMatch = true;
+      } else if (text === highlightText) {
+        isMatch = true;
+      }
+      
+      if (isMatch) {
+        link.classList.remove('text-gray-700', 'dark:text-gray-300', 'hover:text-magenta');
+        link.classList.add('text-magenta', 'dark:text-magenta-light', 'font-bold');
+      } else {
+        // Skip unhighlighting utility items (like theme/rtl toggle, or Register button)
+        if (link.classList.contains('theme-toggle') || link.classList.contains('rtl-toggle') || href.includes('login-register.html')) {
+          return;
+        }
+        link.classList.add('text-gray-700', 'dark:text-gray-300', 'hover:text-magenta');
+        link.classList.remove('text-magenta', 'dark:text-magenta-light', 'font-bold');
+      }
+    };
+    
+    desktopLinks.forEach(processLink);
+    mobileLinks.forEach(processLink);
+  };
+  
+  window.addEventListener('scroll', handleScrollSpy);
+  handleScrollSpy(); // run once on load
+}
+
+// Close all popups, drawers, and modal overlays on Escape keypress
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" || e.keyCode === 27) {
+    // 1. Close mobile menu drawer
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
+      mobileMenu.classList.add("hidden");
+      document.body.classList.remove("overflow-hidden");
+      const menuBtn = document.getElementById("mobile-menu-btn");
+      if (menuBtn) menuBtn.classList.remove("open");
+    }
+
+    // 2. Hide all dropdown menus
+    const dropdownMenus = document.querySelectorAll(".dropdown-toggle + div, nav div.absolute");
+    dropdownMenus.forEach(menu => {
+      menu.classList.add("hidden");
+    });
+
+    // 3. Hide custom confirm modal if present in dashboard
+    const confirmModal = document.getElementById("custom-confirm-modal");
+    if (confirmModal && !confirmModal.classList.contains("hidden")) {
+      const cancelBtn = document.getElementById("confirm-modal-cancel");
+      if (cancelBtn) {
+        cancelBtn.click();
+      } else {
+        confirmModal.classList.add("hidden");
+        confirmModal.classList.add("opacity-0");
+      }
+    }
+    
+    // 4. Hide payment method modal
+    if (typeof window.hidePaymentModal === "function") {
+      window.hidePaymentModal();
+    }
+    
+    // 5. Hide Toast messages
+    const toasts = document.querySelectorAll("#toast-container > div, #contactToast");
+    toasts.forEach(toast => {
+      if (toast.id === "contactToast") {
+        toast.style.transform = "translateY(-150%)";
+      } else {
+        toast.remove();
+      }
+    });
+  }
+});
+
+
 
 

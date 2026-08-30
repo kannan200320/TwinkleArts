@@ -123,3 +123,74 @@ footer .border-t.flex-col.sm\:flex-row {
   -ms-overflow-style: none !important;
   scrollbar-width: none !important;
 }
+
+/* Hamburger animation */
+#mobile-menu-btn .line-1,
+#mobile-menu-btn .line-2,
+#mobile-menu-btn .line-3 {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: 12px 12px;
+}
+#mobile-menu-btn.open .line-1 {
+  transform: translateY(6px) rotate(45deg);
+}
+#mobile-menu-btn.open .line-2 {
+  opacity: 0;
+}
+#mobile-menu-btn.open .line-3 {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Ensure proper form input contrast in dark and light modes */
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="search"], input[type="file"], select, textarea {
+  color: #111111 !important;
+  background-color: #ffffff !important;
+  border-color: #d1d5db !important;
+}
+input[type="text"]::placeholder, input[type="email"]::placeholder, input[type="password"]::placeholder, input[type="tel"]::placeholder, input[type="search"]::placeholder, textarea::placeholder {
+  color: #6b7280 !important;
+}
+
+.dark input[type="text"], .dark input[type="email"], .dark input[type="password"], .dark input[type="tel"], .dark input[type="search"], .dark input[type="file"], .dark select, .dark textarea {
+  color: #ffffff !important;
+  background-color: #0d0d0d !important;
+  border-color: #374151 !important;
+}
+.dark input[type="text"]::placeholder, .dark input[type="email"]::placeholder, .dark input[type="password"]::placeholder, .dark input[type="tel"]::placeholder, .dark input[type="search"]::placeholder, .dark textarea::placeholder {
+  color: #9ca3af !important;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="tel"]:focus, input[type="search"]:focus, select:focus, textarea:focus {
+  border-color: #91117a !important;
+}
+
+/* Typography contrast correction */
+.text-gray-500 {
+  color: #4b5563 !important; /* gray-600 */
+}
+.text-gray-650 {
+  color: #4b5563 !important; /* gray-600 */
+}
+.dark .text-gray-500, .dark .text-gray-450, .dark .text-gray-400, .dark .text-gray-650 {
+  color: #d1d5db !important; /* gray-300 */
+}
+
+/* Card borders and backgrounds contrast in dark mode */
+.dark .bg-white, .dark .bg-gray-50 {
+  background-color: #0a0a0a !important;
+}
+.dark .border-gray-100, .dark .border-gray-150, .dark .border-gray-200 {
+  border-color: #1f2937 !important;
+}
+
+/* Remove button hover styling override */
+#removePicBtn:hover {
+  color: #91117a !important; /* Magenta brand color */
+  border-color: #91117a !important;
+  background-color: rgba(145, 17, 122, 0.05) !important; /* Subtle background highlight */
+}
+.dark #removePicBtn:hover {
+  color: #b01a95 !important; /* Light magenta in dark mode */
+  border-color: #b01a95 !important;
+  background-color: rgba(176, 26, 149, 0.08) !important;
+}

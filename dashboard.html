@@ -82,7 +82,7 @@
         
         <div class="flex items-center gap-2 shrink-0">
           <div class="w-9 h-9 rounded-full bg-magenta text-white flex items-center justify-center font-bold text-sm shadow-inner" id="userHeaderAvatar">
-            PT
+            U
           </div>
           <span class="text-xs font-bold hidden sm:inline" id="userHeaderName">Parent Portal</span>
         </div>
@@ -277,11 +277,11 @@
                   <h3 class="font-bold text-lg text-black dark:text-white">Announcements</h3>
                   <div class="space-y-3 text-xs">
                     <div class="p-3 bg-yellow-500/10 border-l-4 border-yellow-500 rounded-r-xl">
-                      <h4 class="font-bold text-yellow-800 dark:text-yellow-450">Gala Costumes</h4>
+                      <h4 class="font-bold text-yellow-800 dark:text-yellow-300">Gala Costumes</h4>
                       <p class="text-[10px] text-gray-500 dark:text-gray-400 mt-1 leading-normal">Final measurements must be submitted before Friday.</p>
                     </div>
                     <div class="p-3 bg-blue-500/10 border-l-4 border-blue-500 rounded-r-xl">
-                      <h4 class="font-bold text-blue-800 dark:text-blue-450">Observation Week</h4>
+                      <h4 class="font-bold text-blue-800 dark:text-blue-300">Observation Week</h4>
                       <p class="text-[10px] text-gray-500 dark:text-gray-400 mt-1 leading-normal">Parents are welcome to view live class streams starting Oct 1st.</p>
                     </div>
                   </div>
@@ -519,7 +519,7 @@
                 
                 <div class="flex flex-col sm:flex-row items-center gap-6 pb-6 border-b border-gray-250 dark:border-gray-800">
                   <div class="relative w-20 h-20 rounded-full border border-gray-250 dark:border-gray-700 bg-magenta text-white flex items-center justify-center font-bold text-2xl shadow-inner overflow-hidden" id="profilePicPreview">
-                    PT
+                    SJ
                   </div>
                   <div class="space-y-2 text-center sm:text-left">
                     <h5 class="text-sm font-bold text-black dark:text-white">Profile Photo</h5>
@@ -536,22 +536,23 @@
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label for="profile-name" class="block font-bold text-gray-700 dark:text-gray-300 mb-2">Full Name *</label>
-                      <input type="text" id="profile-name" class="w-full px-4 py-3 bg-white dark:bg-darknavy-deep border border-gray-200 dark:border-gray-850 rounded-xl outline-none focus:border-magenta text-xs" required value="Sarah Jenkins">
+                      <input type="text" id="profile-name" class="w-full px-4 py-3 bg-white dark:bg-darknavy-deep border border-gray-200 dark:border-gray-850 rounded-xl outline-none focus:border-magenta text-xs" required placeholder="Full Name">
                     </div>
                     <div>
                       <label for="profile-email" class="block font-bold text-gray-700 dark:text-gray-300 mb-2">Email Address *</label>
-                      <input type="email" id="profile-email" class="w-full px-4 py-3 bg-white dark:bg-darknavy-deep border border-gray-200 dark:border-gray-850 rounded-xl outline-none focus:border-magenta text-xs" required value="sarah.jenkins@example.com">
+                      <input type="email" id="profile-email" class="w-full px-4 py-3 bg-white dark:bg-darknavy-deep border border-gray-200 dark:border-gray-850 rounded-xl outline-none focus:border-magenta text-xs" required placeholder="Email Address">
                     </div>
                   </div>
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label for="profile-phone" class="block font-bold text-gray-700 dark:text-gray-300 mb-2">Phone Number</label>
-                      <input type="tel" id="profile-phone" class="w-full px-4 py-3 bg-white dark:bg-darknavy-deep border border-gray-200 dark:border-gray-850 rounded-xl outline-none focus:border-magenta text-xs" value="+1 (555) 902-3321">
+                      <input type="tel" id="profile-phone" class="w-full px-4 py-3 bg-white dark:bg-darknavy-deep border border-gray-200 dark:border-gray-850 rounded-xl outline-none focus:border-magenta text-xs" placeholder="Phone Number">
                     </div>
                     <div>
                       <label for="profile-style" class="block font-bold text-gray-700 dark:text-gray-300 mb-2">Preferred Dance Style</label>
                       <select id="profile-style" class="w-full px-4 py-3 bg-white dark:bg-darknavy-deep border border-gray-200 dark:border-gray-850 rounded-xl outline-none focus:border-magenta text-xs font-bold">
-                        <option value="Ballet" selected>Classical Ballet</option>
+                        <option value="" disabled selected>Choose a style...</option>
+                        <option value="Ballet">Classical Ballet</option>
                         <option value="Hiphop">Urban Hip-Hop</option>
                       </select>
                     </div>
@@ -599,6 +600,58 @@
     };
 
     document.addEventListener("DOMContentLoaded", () => {
+      // Load saved profile photo on start
+      const savedAvatar = localStorage.getItem("userAvatar");
+      if (savedAvatar) {
+        const imgHtml = `<img src="${savedAvatar}" class="w-full h-full rounded-full object-cover" alt="Preview">`;
+        const previewEl = document.getElementById("profilePicPreview");
+        const headerAvatar = document.getElementById("userHeaderAvatar");
+        if (previewEl) previewEl.innerHTML = imgHtml;
+        if (headerAvatar) headerAvatar.innerHTML = imgHtml;
+      }
+
+      // Load saved profile data
+      const savedName = localStorage.getItem("userName");
+      const savedEmail = localStorage.getItem("userEmail");
+      const savedPhone = localStorage.getItem("userPhone");
+      const savedStyle = localStorage.getItem("userStyle");
+      
+      if (savedName) {
+        const nameInput = document.getElementById("profile-name");
+        if (nameInput) nameInput.value = savedName;
+        const headerName = document.getElementById("userHeaderName");
+        if (headerName) headerName.textContent = savedName;
+        
+        // If profile avatar is not loaded as image, show the updated initials
+        if (!savedAvatar) {
+          const initials = getInitials(savedName);
+          const previewEl = document.getElementById("profilePicPreview");
+          const headerAvatar = document.getElementById("userHeaderAvatar");
+          if (previewEl) previewEl.textContent = initials;
+          if (headerAvatar) headerAvatar.textContent = initials;
+        }
+      } else {
+        // Default avatar initials to U if no custom details are set
+        if (!savedAvatar) {
+          const previewEl = document.getElementById("profilePicPreview");
+          const headerAvatar = document.getElementById("userHeaderAvatar");
+          if (previewEl) previewEl.textContent = "U";
+          if (headerAvatar) headerAvatar.textContent = "U";
+        }
+      }
+      if (savedEmail) {
+        const emailInput = document.getElementById("profile-email");
+        if (emailInput) emailInput.value = savedEmail;
+      }
+      if (savedPhone) {
+        const phoneInput = document.getElementById("profile-phone");
+        if (phoneInput) phoneInput.value = savedPhone;
+      }
+      if (savedStyle) {
+        const styleInput = document.getElementById("profile-style");
+        if (styleInput) styleInput.value = savedStyle;
+      }
+
       // Card Input Auto Formatters
       const cardNumInput = document.getElementById("card-num-input");
       if (cardNumInput) {
@@ -669,10 +722,31 @@
         picInput.addEventListener("change", (e) => {
           const file = e.target.files[0];
           if (file) {
+            // Validate file format (JPEG/JPG or PNG)
+            const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+            const allowedMimeTypes = ['image/jpeg', 'image/png'];
+            
+            if (!allowedMimeTypes.includes(file.type) && !allowedExtensions.test(file.name)) {
+              alert("Supported formats: JPG, JPEG, PNG. Please upload a valid image file.");
+              picInput.value = "";
+              return;
+            }
+            
+            // Validate file size limit (Max size 2MB)
+            const maxSize = 2 * 1024 * 1024; // 2MB
+            if (file.size > maxSize) {
+              alert("File size exceeds 2MB limit. Please upload a smaller image.");
+              picInput.value = "";
+              return;
+            }
+
             const reader = new FileReader();
             reader.onload = (event) => {
               const imgHtml = `<img src="${event.target.result}" class="w-full h-full rounded-full object-cover" alt="Preview">`;
               previewEl.innerHTML = imgHtml;
+              
+              // Persist in localStorage
+              localStorage.setItem("userAvatar", event.target.result);
               
               // IMMEDIATELY update top right header avatar
               const headerAvatar = document.getElementById("userHeaderAvatar");
@@ -686,6 +760,9 @@
       }
       if (removePicBtn) {
         removePicBtn.addEventListener("click", () => {
+          // Remove from localStorage
+          localStorage.removeItem("userAvatar");
+          
           const nameVal = document.getElementById("profile-name").value;
           const initials = getInitials(nameVal);
           previewEl.innerHTML = initials;
@@ -1134,7 +1211,7 @@
     }
 
     function getInitials(name) {
-      let initials = "PT";
+      let initials = "U";
       if (name) {
         const parts = name.trim().split(/\s+/);
         if (parts.length >= 2) {
@@ -1148,11 +1225,19 @@
 
     function updateProfile(event) {
       event.preventDefault();
-      const name = document.getElementById("profile-name").value;
+      const name = document.getElementById("profile-name").value.trim();
+      const email = document.getElementById("profile-email").value.trim();
+      const phone = document.getElementById("profile-phone").value.trim();
+      const style = document.getElementById("profile-style").value;
+      
+      localStorage.setItem("userName", name);
+      localStorage.setItem("userEmail", email);
+      localStorage.setItem("userPhone", phone);
+      localStorage.setItem("userStyle", style);
       
       // Update header text
       const headerName = document.getElementById("userHeaderName");
-      if (headerName) headerName.textContent = name;
+      if (headerName) headerName.textContent = name || "Parent Portal";
       
       // Calculate initials from name
       const initials = getInitials(name);
