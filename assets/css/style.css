@@ -194,3 +194,32 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   border-color: #b01a95 !important;
   background-color: rgba(176, 26, 149, 0.08) !important;
 }
+
+/* =========================================================
+   Typography Hierarchy & Header Height (Issue 10)
+   ========================================================= */
+header .h-20,
+header .h-16 {
+  height: 4rem !important; /* 64px reduced header height */
+}
+
+/* Maintain heading font weight up to 600 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600 !important;
+}
+h1.font-extrabold, h2.font-extrabold, h3.font-extrabold, h4.font-extrabold,
+h1.font-bold, h2.font-bold, h3.font-bold, h4.font-bold {
+  font-weight: 600 !important;
+}
+
+/* Subheadings and descriptions between 400 and 550 */
+.subheading,
+section .text-gray-500,
+section .text-gray-600,
+section .dark\:text-gray-300,
+section .dark\:text-gray-400,
+p.font-sans,
+section p {
+  font-weight: 450;
+}
+

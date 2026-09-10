@@ -63,26 +63,25 @@
       <path d="M50,50 L85,50 L85,65 L75,65 L75,50 L65,50 L65,65 L55,65 L55,50" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
 
-    <!-- Top Action Toggles & Logo Header Inside Card -->
-    <div class="flex justify-between items-center pb-4 border-b border-gray-150 dark:border-gray-800">
-      <!-- Left: Logo -->
-      <a href="index.html" class="flex items-center space-x-2 rtl:space-x-reverse">
-        <span class="w-8 h-8 rounded-full bg-magenta flex items-center justify-center text-white font-extrabold text-sm shadow shadow-magenta/30">T</span>
-        <span class="text-lg font-bold tracking-tight text-darknavy dark:text-white font-sans">Twinkle<span class="text-magenta">Arts</span></span>
+    <!-- Top-Right Action Toggles (Theme & RTL - Issue 9) -->
+    <div class="absolute top-5 right-5 sm:top-6 sm:right-6 flex items-center space-x-2 rtl:space-x-reverse rtl:left-5 rtl:right-auto sm:rtl:left-6 sm:rtl:right-auto z-20">
+      <!-- Theme Switch (Sun/Moon Icon) -->
+      <button class="theme-toggle p-2 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-darknavy-light hover:bg-gray-100 dark:hover:bg-darknavy text-gray-500 dark:text-gray-400 transition" aria-label="Toggle dark mode">
+        <i class="bi bi-moon-fill theme-toggle-moon text-sm"></i>
+        <i class="bi bi-sun-fill theme-toggle-sun text-sm hidden"></i>
+      </button>
+      <!-- RTL Switch (Arrows Icon) -->
+      <button class="rtl-toggle p-2 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-darknavy-light hover:bg-gray-100 dark:hover:bg-darknavy text-gray-500 dark:text-gray-400 transition" aria-label="Toggle RTL mode">
+        <i class="bi bi-arrow-left-right text-sm"></i>
+      </button>
+    </div>
+
+    <!-- Center-Aligned Brand Logo & Name (Issue 9) -->
+    <div class="flex justify-center items-center pt-2 pb-2 border-b border-gray-150 dark:border-gray-800">
+      <a href="index.html" class="flex items-center space-x-2.5 rtl:space-x-reverse">
+        <span class="w-9 h-9 rounded-full bg-magenta flex items-center justify-center text-white font-extrabold text-base shadow shadow-magenta/30">T</span>
+        <span class="text-xl font-bold tracking-tight text-darknavy dark:text-white font-sans">Twinkle<span class="text-magenta">Arts</span></span>
       </a>
-      
-      <!-- Right: RTL & Theme Toggles -->
-      <div class="flex items-center space-x-3.5 rtl:space-x-reverse">
-        <!-- RTL Switch (Arrows Icon) -->
-        <button class="rtl-toggle text-sm hover:text-magenta transition text-gray-500 dark:text-gray-400" aria-label="Toggle RTL mode">
-          <i class="bi bi-arrow-left-right text-base"></i>
-        </button>
-        <!-- Theme Switch (Sun/Moon Icon) -->
-        <button class="theme-toggle text-sm hover:text-magenta transition text-gray-500 dark:text-gray-400" aria-label="Toggle dark mode">
-          <i class="bi bi-moon-fill theme-toggle-moon text-base"></i>
-          <i class="bi bi-sun-fill theme-toggle-sun text-base hidden"></i>
-        </button>
-      </div>
     </div>
     
     <!-- Header Text (below divider) -->

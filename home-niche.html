@@ -62,13 +62,14 @@
     <!-- ================= HEADER SECTION ================= -->
     <!-- ================= HEADER SECTION ================= -->
     <!-- ================= HEADER SECTION ================= -->
-  <header class="sticky top-0 z-40 bg-white/95 dark:bg-darknavy/95 backdrop-blur border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
+  <!-- ================= HEADER SECTION ================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 w-full bg-white/95 dark:bg-darknavy/95 backdrop-blur border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
+      <div class="flex items-center justify-between h-16">
         
         <!-- Logo -->
         <a href="index.html" class="flex items-center space-x-2 rtl:space-x-reverse shrink-0">
-          <span class="w-10 h-10 rounded-full bg-magenta flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-magenta/30 animate-pulse-slow">T</span>
+          <span class="w-9 h-9 rounded-full bg-magenta flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-magenta/30">T</span>
           <span class="text-xl font-bold tracking-tight text-darknavy dark:text-white font-sans">Twinkle<span class="text-magenta">Arts</span></span>
         </a>
 
@@ -77,14 +78,14 @@
           
           <!-- Home Dropdown -->
           <div class="relative group">
-            <button class="dropdown-toggle flex items-center space-x-1 rtl:space-x-reverse text-gray-700 dark:text-gray-300 hover:text-magenta py-2 font-semibold transition-colors duration-200">
+            <button class="dropdown-toggle flex items-center space-x-1 rtl:space-x-reverse text-magenta font-semibold py-2 transition-colors duration-200">
               <span>Home</span>
-              <svg class="w-4 h-4 text-gray-400 group-hover:text-magenta transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              <svg class="w-4 h-4 text-magenta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div class="absolute left-0 rtl:right-0 mt-2 w-56 rounded-xl bg-white dark:bg-darknavy border border-gray-100 dark:border-gray-800 shadow-xl hidden group-hover:block z-50">
               <div class="p-2 space-y-1">
                 <a href="index.html" class="block px-4 py-3 text-sm rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-darknavy-light hover:text-magenta font-semibold transition-colors">Home 1 - Academy Landing</a>
-                <a href="home-niche.html" class="block px-4 py-3 text-sm rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-darknavy-light hover:text-magenta font-semibold transition-colors">Home 2 - Niche Urban Beat</a>
+                <a href="home-niche.html" class="block px-4 py-3 text-sm rounded-lg text-magenta bg-gray-50 dark:bg-darknavy-light font-semibold transition-colors">Home 2 - Niche Urban Beat</a>
               </div>
             </div>
           </div>
@@ -101,6 +102,7 @@
             </button>
             <div class="absolute left-0 rtl:right-0 mt-2 w-52 rounded-xl bg-white dark:bg-darknavy border border-gray-100 dark:border-gray-800 shadow-xl hidden group-hover:block z-50">
               <div class="p-2 space-y-1">
+                <a href="dashboard.html" class="block px-4 py-2.5 text-sm rounded-lg text-magenta hover:bg-gray-100 dark:hover:bg-darknavy-light font-bold transition-colors">Parent Dashboard</a>
                 <a href="schedule.html" class="block px-4 py-2.5 text-sm rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-darknavy-light hover:text-magenta font-semibold transition-colors">Class Schedule</a>
                 <a href="gallery.html" class="block px-4 py-2.5 text-sm rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-darknavy-light hover:text-magenta font-semibold transition-colors">Event Gallery</a>
                 <a href="pricing.html" class="block px-4 py-2.5 text-sm rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-darknavy-light hover:text-magenta font-semibold transition-colors">Membership Plans</a>
@@ -178,6 +180,7 @@
               <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div class="pl-4 ml-1 space-y-2.5 hidden border-l-2 border-gray-150 dark:border-gray-800 py-1">
+              <a href="dashboard.html" class="block pl-3 text-sm text-magenta font-semibold">Parent Dashboard</a>
               <a href="schedule.html" class="block pl-3 text-sm text-gray-500 hover:text-magenta font-medium">Class Schedule</a>
               <a href="gallery.html" class="block pl-3 text-sm text-gray-500 hover:text-magenta font-medium">Event Gallery</a>
               <a href="pricing.html" class="block pl-3 text-sm text-gray-500 hover:text-magenta font-medium">Membership Plans</a>
@@ -387,9 +390,12 @@
           <p class="text-sm text-gray-650 dark:text-gray-300 italic leading-relaxed">
             "Marcus and the crew at TwinkleArts have helped my son build so much self-esteem. He went from being extremely shy in school to confidently leading battle circles in public street jams!"
           </p>
-          <div>
-            <h6 class="font-bold text-black dark:text-white text-sm">David K.</h6>
-            <span class="text-[10px] text-gray-400 uppercase font-extrabold">Parent of B-Boy Leo (Age 10)</span>
+          <div class="flex items-center gap-3.5 pt-2">
+            <img src="assets/images/avatars/avatar-parent-2.jpg" alt="David K." class="w-11 h-11 rounded-full object-cover border-2 border-magenta/40 shadow-sm shrink-0">
+            <div>
+              <h6 class="font-bold text-black dark:text-white text-sm">David K.</h6>
+              <span class="text-[10px] text-gray-400 uppercase font-extrabold">Parent of B-Boy Leo (Age 10)</span>
+            </div>
           </div>
         </div>
 
@@ -399,9 +405,12 @@
           <p class="text-sm text-gray-650 dark:text-gray-300 italic leading-relaxed">
             "The energy at the Urban Beat studio is amazing. My daughter loves the crew routines and the street dance jams. It is a fantastic workout and an incredibly supportive environment."
           </p>
-          <div>
-            <h6 class="font-bold text-black dark:text-white text-sm">Sarah L.</h6>
-            <span class="text-[10px] text-gray-400 uppercase font-extrabold">Parent of B-Girl Maya (Age 12)</span>
+          <div class="flex items-center gap-3.5 pt-2">
+            <img src="assets/images/avatars/avatar-parent-1.jpg" alt="Sarah L." class="w-11 h-11 rounded-full object-cover border-2 border-magenta/40 shadow-sm shrink-0">
+            <div>
+              <h6 class="font-bold text-black dark:text-white text-sm">Sarah L.</h6>
+              <span class="text-[10px] text-gray-400 uppercase font-extrabold">Parent of B-Girl Maya (Age 12)</span>
+            </div>
           </div>
         </div>
       </div>
@@ -515,6 +524,7 @@
             <li><a href="about.html" class="hover:text-magenta transition">Our Story</a></li>
             <li><a href="instructors.html" class="hover:text-magenta transition">Our Instructors</a></li>
             <li><a href="pricing.html" class="hover:text-magenta transition">Membership Plans</a></li>
+            <li><a href="dashboard.html" class="hover:text-magenta transition">Parent Dashboard</a></li>
             <li><a href="login-register.html" class="hover:text-magenta transition">Enroll Now</a></li>
           </ul>
         </div>

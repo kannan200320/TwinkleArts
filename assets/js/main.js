@@ -597,76 +597,8 @@ document.addEventListener("submit", (e) => {
 // 8. ScrollSpy (Dynamic Active Page Scrolling Highlight)
 // ==========================================
 function initScrollSpy() {
-  const path = window.location.pathname;
-  const page = path.split("/").pop();
-  const isHomepage = (page === "index.html" || page === "home-niche.html" || page === "");
-  
-  if (!isHomepage) return;
-  
-  const spySections = document.querySelectorAll('section[id="hero"], section[id="about"], section[id="programs"]');
-  if (spySections.length === 0) return;
-  
-  const handleScrollSpy = () => {
-    const scrollPos = (window.scrollY || document.documentElement.scrollTop || 0) + 200; // offset for header height
-    let activeSectionId = 'hero'; // default to hero at top
-    
-    spySections.forEach(section => {
-      const top = section.offsetTop;
-      if (scrollPos >= top) {
-        activeSectionId = section.getAttribute('id');
-      }
-    });
-    
-    // Update nav elements
-    const desktopLinks = document.querySelectorAll('nav a, nav .dropdown-toggle');
-    const mobileLinks = document.querySelectorAll('#mobile-menu a, #mobile-menu button');
-    
-    let highlightHref = '';
-    let highlightText = '';
-    
-    if (activeSectionId === 'hero') {
-      highlightHref = page || 'index.html';
-      highlightText = 'home';
-    } else if (activeSectionId === 'about') {
-      highlightHref = 'about.html';
-      highlightText = 'about us';
-    } else if (activeSectionId === 'programs') {
-      highlightHref = 'services.html';
-      highlightText = 'programs';
-    }
-    
-    const processLink = (link) => {
-      const href = link.getAttribute('href') || '';
-      const text = link.textContent.trim().toLowerCase();
-      
-      let isMatch = false;
-      if (highlightText === 'home' && (href === 'index.html' || href === 'home-niche.html' || text.includes('home'))) {
-        isMatch = true;
-      } else if (highlightHref && href.includes(highlightHref)) {
-        isMatch = true;
-      } else if (text === highlightText) {
-        isMatch = true;
-      }
-      
-      if (isMatch) {
-        link.classList.remove('text-gray-700', 'dark:text-gray-300', 'hover:text-magenta');
-        link.classList.add('text-magenta', 'dark:text-magenta-light', 'font-bold');
-      } else {
-        // Skip unhighlighting utility items (like theme/rtl toggle, or Register button)
-        if (link.classList.contains('theme-toggle') || link.classList.contains('rtl-toggle') || href.includes('login-register.html')) {
-          return;
-        }
-        link.classList.add('text-gray-700', 'dark:text-gray-300', 'hover:text-magenta');
-        link.classList.remove('text-magenta', 'dark:text-magenta-light', 'font-bold');
-      }
-    };
-    
-    desktopLinks.forEach(processLink);
-    mobileLinks.forEach(processLink);
-  };
-  
-  window.addEventListener('scroll', handleScrollSpy);
-  handleScrollSpy(); // run once on load
+  // Prevent navbar layout shifts and unexpected active link changes during scrolling
+  return;
 }
 
 // Close all popups, drawers, and modal overlays on Escape keypress
