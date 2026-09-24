@@ -537,6 +537,8 @@ function highlightActiveNav() {
     mainTargetHref = "instructors.html";
   } else if (page === "contact.html") {
     mainTargetHref = "contact.html";
+  } else if (page === "dashboard.html") {
+    mainTargetHref = "dashboard.html";
   } else if (page === "schedule.html" || page === "gallery.html" || page === "pricing.html" || page === "blog.html" || page.startsWith("blog-details")) {
     mainTargetHref = "explore"; // Highlights Explore dropdown
     subTargetHref = (page.startsWith("blog-details") || page === "blog.html") ? "blog.html" : page; // Highlights specific sub-link
